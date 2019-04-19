@@ -245,6 +245,7 @@
                                                       document.getElementById("new_supplier").value="";
                                                       document.getElementById("new_expiry_date").value="";
                                                       $('#med_add').html('');
+                                                      window.location.reload();
 
                                                     }
                                                   });
@@ -316,6 +317,10 @@
                         Quantity
                     </th>
 
+                    <th class="two wide" >
+                        Threshold
+                    </th>
+
                 </tr>
                 </thead>
 
@@ -337,6 +342,16 @@
 
                     <td>
                         {{view.quantity}}
+                    </td>
+
+                    <td>
+                    {% for st in stocks %}
+                    {% if view.medicine_id.id == st.id %}
+
+                        {{st.threshold}}
+
+                    {% endif %}
+                    {% endfor %}
                     </td>
 
                 </tr>

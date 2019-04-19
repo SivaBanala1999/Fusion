@@ -39,8 +39,9 @@ def compounder_view(request):                                                   
     if usertype == 'compounder':
         if request.method == 'POST':
 
-            if 'feed_com' in request.POST:                                    # compounder response to patients feedback
+            if 'feed' in request.POST:                                    # compounder response to patients feedback
                 pk = request.POST.get('com_id')
+                #u_id = request.POST.get('user')
                 feedback = request.POST.get('feed')
                 Complaint.objects.filter(id=pk).update(feedback=feedback)
                 data = {'feedback': feedback}
